@@ -1,9 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://nntvl76rwuvf"]
+[gd_scene format=3 uid="uid://nntvl76rwuvf"]
 
-[ext_resource type="Script" path="res://addons/worktime_stopwatch/config_dialog/config_dialog.gd" id="1_4yrt7"]
-[ext_resource type="Script" path="res://addons/worktime_stopwatch/config_dialog/calendar_ui.gd" id="2_o3enq"]
-[ext_resource type="Script" path="res://addons/worktime_stopwatch/config_dialog/settings_ui.gd" id="3_2k87h"]
-[ext_resource type="Script" path="res://addons/worktime_stopwatch/config_dialog/extra_actions_ui.gd" id="4_57odq"]
+[ext_resource type="Script" uid="uid://xaqhbqxqn7ck" path="res://addons/worktime_stopwatch/config_dialog/config_dialog.gd" id="1_4yrt7"]
+[ext_resource type="Script" uid="uid://b1eqtfk0bbg1u" path="res://addons/worktime_stopwatch/config_dialog/calendar_ui.gd" id="2_o3enq"]
+[ext_resource type="Script" uid="uid://gv3tjxodry50" path="res://addons/worktime_stopwatch/config_dialog/settings_ui.gd" id="3_2k87h"]
+[ext_resource type="Script" uid="uid://bfhq5ux6b1lgb" path="res://addons/worktime_stopwatch/config_dialog/extra_actions_ui.gd" id="4_57odq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bsyg"]
 content_margin_left = 4.0
@@ -18,7 +18,8 @@ border_width_right = 2
 border_width_bottom = 2
 corner_detail = 1
 
-[node name="ConfigDialog" type="Window"]
+[node name="ConfigDialog" type="Window" unique_id=529246250]
+oversampling_override = 1.0
 title = "Worktime Stopwatch"
 initial_position = 1
 size = Vector2i(570, 560)
@@ -27,7 +28,7 @@ transient = true
 unresizable = true
 script = ExtResource("1_4yrt7")
 
-[node name="Panel" type="ColorRect" parent="."]
+[node name="Panel" type="ColorRect" parent="." unique_id=772998786]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -35,7 +36,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="TabContainer" type="TabContainer" parent="."]
+[node name="TabContainer" type="TabContainer" parent="." unique_id=14798909]
 custom_minimum_size = Vector2(200, 200)
 anchors_preset = 15
 anchor_right = 1.0
@@ -44,7 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 current_tab = 2
 
-[node name="Calendar" type="MarginContainer" parent="TabContainer"]
+[node name="Calendar" type="MarginContainer" parent="TabContainer" unique_id=1546389226]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(200, 200)
@@ -56,50 +57,50 @@ theme_override_constants/margin_bottom = 10
 script = ExtResource("2_o3enq")
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Calendar"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Calendar" unique_id=270817463]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Calendar/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Calendar/VBoxContainer" unique_id=515317874]
 layout_mode = 2
 alignment = 1
 
-[node name="StartingDateLabel" type="Label" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer"]
+[node name="StartingDateLabel" type="Label" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer" unique_id=945724278]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "The date at which you first ran the plugin or reset your progression."
 text = "Starting date: 1970-01-01"
 
-[node name="ResetProgressButton" type="Button" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer"]
+[node name="ResetProgressButton" type="Button" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer" unique_id=396075804]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Reset your progression. (You'll be back to day 1)"
 text = "Reset"
 
-[node name="ResetProgressConfirmationDialog" type="ConfirmationDialog" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer/ResetProgressButton"]
+[node name="ResetProgressConfirmationDialog" type="ConfirmationDialog" parent="TabContainer/Calendar/VBoxContainer/HBoxContainer/ResetProgressButton" unique_id=1801014451]
 unique_name_in_owner = true
 position = Vector2i(0, 36)
 size = Vector2i(403, 100)
 dialog_text = "Reset whole progression? You will return to Day 1. Current work time will also be reset."
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Calendar/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Calendar/VBoxContainer" unique_id=714809740]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_0bsyg")
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Calendar/VBoxContainer/ScrollContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Calendar/VBoxContainer/ScrollContainer" unique_id=225176383]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="DaysGrid" type="GridContainer" parent="TabContainer/Calendar/VBoxContainer/ScrollContainer/MarginContainer"]
+[node name="DaysGrid" type="GridContainer" parent="TabContainer/Calendar/VBoxContainer/ScrollContainer/MarginContainer" unique_id=139844416]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 7
 
-[node name="Settings" type="MarginContainer" parent="TabContainer"]
+[node name="Settings" type="MarginContainer" parent="TabContainer" unique_id=1537068343]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(200, 200)
@@ -111,29 +112,29 @@ theme_override_constants/margin_bottom = 10
 script = ExtResource("3_2k87h")
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings" unique_id=423209400]
 layout_mode = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Settings/VBoxContainer" unique_id=415504137]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer" unique_id=81782788]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="MinimumWorkTime" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="MinimumWorkTime" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1926970661]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime" unique_id=371624343]
 layout_mode = 2
 
-[node name="CurrentWorktimeLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer"]
+[node name="CurrentWorktimeLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer" unique_id=8989499]
 layout_mode = 2
 text = "Current minimum daily work time: "
 
-[node name="DailyWorkTimeSpinBox" type="SpinBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer"]
+[node name="DailyWorkTimeSpinBox" type="SpinBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer" unique_id=2002471693]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Minimum daily work time. One decimal place is allowed (ex: 10.5 for 10m30s)"
@@ -142,29 +143,29 @@ step = 0.1
 update_on_text_changed = true
 custom_arrow_step = 1.0
 
-[node name="MinutesLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer"]
+[node name="MinutesLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer" unique_id=1843207124]
 layout_mode = 2
 text = "minutes"
 
-[node name="Misc" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="Misc" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1270951951]
 layout_mode = 2
 
-[node name="AutoStartCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/Misc"]
+[node name="AutoStartCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/Misc" unique_id=835726001]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "The stopwatch will start counting as soon as you open your project (or the plugin is enabled)."
 text = "Auto start stopwatch on plugin load"
 
-[node name="ContinuousDateCheckCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/Misc"]
+[node name="ContinuousDateCheckCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/Misc" unique_id=1001680628]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "The plugin will check the current date every 5 seconds instead of only when you start/stop the stopwatch or open/close the project."
 text = "Periodic date check"
 
-[node name="FocusedWindow" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer"]
+[node name="FocusedWindow" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1965673033]
 layout_mode = 2
 
-[node name="FocusedWindowLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow"]
+[node name="FocusedWindowLabel" type="Label" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow" unique_id=167172702]
 layout_mode = 2
 tooltip_text = "If the current foreground window doesn't correspond to any of the checked checkboxes below, the stopwatch will stop counting until you switch back to an allowed window.
 If both checkboxes are unchecked, the stopwatch will keep counting no matter the foreground window (no activity limitation).
@@ -172,28 +173,28 @@ This feature is Windows-only for now."
 mouse_filter = 1
 text = "Limit activity to:"
 
-[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow"]
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow" unique_id=2103468895]
 layout_mode = 2
 theme_override_constants/margin_left = 12
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer" unique_id=1235142909]
 layout_mode = 2
 
-[node name="FocusedGodotCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer"]
+[node name="FocusedGodotCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer" unique_id=260772798]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Stopwatch activity is limited to (at least) the godot project window."
 button_pressed = true
 text = "Godot project window"
 
-[node name="FocusedOtherCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer"]
+[node name="FocusedOtherCheckBox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer" unique_id=57161393]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Stopwatch activity is limited to (at least) other windows whose title contains one of the given keywords."
 button_pressed = true
 text = "Window with one of these keywords in its title:"
 
-[node name="FocusedOtherTextEdit" type="TextEdit" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer"]
+[node name="FocusedOtherTextEdit" type="TextEdit" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer/VBoxContainer" unique_id=1228726177]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
@@ -204,84 +205,85 @@ Trick: Some programs display the path of the file being modified in the window's
 Adding the name of your project's directory to this list could be a good idea :) 
 For example, if your game assets are in \"C:\\Users\\username\\Documents\\MyGame\\.gdignore\\my_sources_files\", 
 you could add the string \"MyGame\" to the list and automatically whitelist all asset creation apps that display that path in their title."
-virtual_keyboard_enabled = false
 wrap_mode = 1
+virtual_keyboard_enabled = false
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer" unique_id=1067823331]
 layout_mode = 2
 alignment = 1
 
-[node name="SaveButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="SaveButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer" unique_id=28747313]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Save Settings"
 
-[node name="CancelButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="CancelButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer" unique_id=1785576264]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Cancel"
 
-[node name="ResetButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
+[node name="ResetButton" type="Button" parent="TabContainer/Settings/VBoxContainer/HBoxContainer" unique_id=1397364132]
 unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Reset settings to default"
 
-[node name="ResetConfirmationDialog" type="ConfirmationDialog" parent="TabContainer/Settings/VBoxContainer/HBoxContainer/ResetButton"]
+[node name="ResetConfirmationDialog" type="ConfirmationDialog" parent="TabContainer/Settings/VBoxContainer/HBoxContainer/ResetButton" unique_id=329400372]
 unique_name_in_owner = true
 position = Vector2i(0, 36)
 size = Vector2i(295, 100)
 dialog_text = "Reset settings to the default values?"
 
-[node name="Extra" type="MarginContainer" parent="TabContainer"]
+[node name="Extra" type="MarginContainer" parent="TabContainer" unique_id=1195118379]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("4_57odq")
+metadata/_tab_index = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Extra"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Extra" unique_id=1670204785]
 layout_mode = 2
 
-[node name="ExportCSVLabel" type="Label" parent="TabContainer/Extra/VBoxContainer"]
+[node name="ExportCSVLabel" type="Label" parent="TabContainer/Extra/VBoxContainer" unique_id=627021741]
 layout_mode = 2
 tooltip_text = "Export calendar data for all days (excluding today) to a CSV file using the given delimiter."
 text = "Export to CSV:"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Extra/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Extra/VBoxContainer" unique_id=357721072]
 layout_mode = 2
 
-[node name="DelimiterLabel" type="Label" parent="TabContainer/Extra/VBoxContainer/HBoxContainer"]
+[node name="DelimiterLabel" type="Label" parent="TabContainer/Extra/VBoxContainer/HBoxContainer" unique_id=134252035]
 layout_mode = 2
 text = "Delimiter:"
 
-[node name="CSVExportDelimiterLineEdit" type="LineEdit" parent="TabContainer/Extra/VBoxContainer/HBoxContainer"]
+[node name="CSVExportDelimiterLineEdit" type="LineEdit" parent="TabContainer/Extra/VBoxContainer/HBoxContainer" unique_id=627637173]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Custom delimiter"
 placeholder_text = ","
 
-[node name="ExportCSV" type="Button" parent="TabContainer/Extra/VBoxContainer"]
+[node name="ExportCSV" type="Button" parent="TabContainer/Extra/VBoxContainer" unique_id=581267791]
 layout_mode = 2
 tooltip_text = "Export calendar data for all days (excluding today) to a CSV file using the given delimiter."
 text = "Export calendar data to CSV"
 
-[node name="SaveCSVDialog" type="FileDialog" parent="TabContainer/Extra/VBoxContainer/ExportCSV"]
+[node name="SaveCSVDialog" type="FileDialog" parent="TabContainer/Extra/VBoxContainer/ExportCSV" unique_id=1812650998]
 unique_name_in_owner = true
 title = "CSV Export"
 size = Vector2i(700, 400)
 access = 2
 filters = PackedStringArray("*.csv")
 
-[node name="Warning" type="Label" parent="TabContainer/Extra/VBoxContainer"]
+[node name="Warning" type="Label" parent="TabContainer/Extra/VBoxContainer" unique_id=793545003]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 0.783333, 0, 1)
 theme_override_font_sizes/font_size = 11
-text = "DO NOT SAVE CSV FILE INSIDE YOUR PROJECT DIRECTORY OTHERWISE ITS GONNA 
-GET IMPORTED AND TRANSLATION BULLSH*T FILES WILL BE CREATED!!!
+text = "DO NOT SAVE CSV FILE INSIDE YOUR PROJECT DIRECTORY OTHERWISE IT'S GONNA 
+GET IMPORTED BY GODOT AND POOPY TRANSLATION FILES WILL BE CREATED!!!
 
 ALSO, IF YOU WANT TO OVERWRITE AN EXISTING FILE, MAKE SURE THAT 
 IT'S NOT BEING EDITED IN ANOTHER PROGRAM."

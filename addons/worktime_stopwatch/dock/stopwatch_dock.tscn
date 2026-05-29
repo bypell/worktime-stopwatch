@@ -1,9 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbumoasujo2n1"]
+[gd_scene format=3 uid="uid://bbumoasujo2n1"]
 
-[ext_resource type="Script" path="res://addons/worktime_stopwatch/dock/stopwatch_dock.gd" id="1_ldkjy"]
+[ext_resource type="Script" uid="uid://de52ks7i7j0vq" path="res://addons/worktime_stopwatch/dock/stopwatch_dock.gd" id="1_ldkjy"]
 [ext_resource type="StyleBox" uid="uid://d0dqpg8jmfihg" path="res://addons/worktime_stopwatch/theme_override/focus_stylebox.tres" id="2_l16gx"]
 
-[sub_resource type="Image" id="Image_rdrj0"]
+[sub_resource type="Image" id="Image_oaqej"]
 data = {
 "data": PackedByteArray(255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 94, 94, 127, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 231, 255, 94, 94, 54, 255, 94, 94, 57, 255, 93, 93, 233, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 93, 93, 41, 255, 255, 255, 0, 255, 255, 255, 0, 255, 97, 97, 42, 255, 93, 93, 233, 255, 93, 93, 232, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 44, 255, 255, 255, 0, 255, 97, 97, 42, 255, 97, 97, 42, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 96, 96, 45, 255, 93, 93, 235, 255, 94, 94, 234, 255, 95, 95, 43, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 93, 93, 235, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 233, 255, 95, 95, 59, 255, 96, 96, 61, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 93, 93, 255, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0, 255, 255, 255, 0),
 "format": "RGBA8",
@@ -13,9 +13,9 @@ data = {
 }
 
 [sub_resource type="ImageTexture" id="ImageTexture_evs7s"]
-image = SubResource("Image_rdrj0")
+image = SubResource("Image_oaqej")
 
-[node name="Stopwatch" type="CenterContainer"]
+[node name="Stopwatch" type="CenterContainer" unique_id=696517649]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -23,11 +23,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ldkjy")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=528061447]
 layout_mode = 2
 alignment = 1
 
-[node name="CurrentDayButton" type="Button" parent="HBoxContainer"]
+[node name="CurrentDayButton" type="Button" parent="HBoxContainer" unique_id=1709692102]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Current day #
@@ -35,14 +35,14 @@ Click to open config window"
 theme_override_styles/focus = ExtResource("2_l16gx")
 text = "Day 1"
 
-[node name="CurrentWorkTimeLabel" type="Label" parent="HBoxContainer"]
+[node name="CurrentWorkTimeLabel" type="Label" parent="HBoxContainer" unique_id=1501602887]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Current work time. (resets every day)"
 mouse_filter = 1
 text = "00:00:00"
 
-[node name="TargetTimeLabel" type="Label" parent="HBoxContainer"]
+[node name="TargetTimeLabel" type="Label" parent="HBoxContainer" unique_id=1614132346]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Minimum work time for today.
@@ -51,7 +51,7 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "00:12:00"
 
-[node name="StartPauseButton" type="Button" parent="HBoxContainer"]
+[node name="StartPauseButton" type="Button" parent="HBoxContainer" unique_id=35388673]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Start/Stop"
@@ -59,7 +59,7 @@ theme_override_styles/focus = ExtResource("2_l16gx")
 icon = SubResource("ImageTexture_evs7s")
 icon_alignment = 1
 
-[node name="ResetButton" type="Button" parent="HBoxContainer"]
+[node name="ResetButton" type="Button" parent="HBoxContainer" unique_id=444925779]
 unique_name_in_owner = true
 layout_mode = 2
 tooltip_text = "Reset"
@@ -68,7 +68,7 @@ disabled = true
 icon = SubResource("ImageTexture_evs7s")
 icon_alignment = 1
 
-[node name="ResetConfirmationDialog" type="ConfirmationDialog" parent="HBoxContainer/ResetButton"]
+[node name="ResetConfirmationDialog" type="ConfirmationDialog" parent="HBoxContainer/ResetButton" unique_id=516692871]
 unique_name_in_owner = true
 position = Vector2i(0, 36)
 size = Vector2i(277, 100)

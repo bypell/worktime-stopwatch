@@ -160,15 +160,16 @@ func _create_and_set_new_saved_data_object():
 func _add_widget_as_dock(widget_instance):
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_RIGHT_BL, widget_instance)
 	
-	var tabs = widget_instance.get_parent()
+	var tabs = widget_instance.get_parent().get_parent()
 	var vsplit = tabs.get_parent()
 	
 	await get_tree().process_frame #disgusting
 	await get_tree().process_frame #disgusting
 	await get_tree().process_frame #still disgusting
 	
-	if vsplit is VSplitContainer:
-		vsplit.split_offset = 415
+	# this whole thing is disgusting
+	
+	vsplit.split_offsets[0] = 415
 
 
 # Appends data from the current (outdated) day to previous_days_data

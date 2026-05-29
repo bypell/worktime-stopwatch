@@ -15,3 +15,4 @@ src/*.obj
 /addons/worktime_stopwatch/bin/*.exp
 /addons/worktime_stopwatch/bin/*.lib
 /addons/worktime_stopwatch/bin/*.dylib
+/addons/zylann.editor_debugger
