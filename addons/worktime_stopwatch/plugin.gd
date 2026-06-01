@@ -15,6 +15,11 @@ var main_dock_instance: Control
 var config_window_instance: Window
 var settings: Object
 
+var saved_data_dir := "res://addons/" # worktime_stopwatch_saved_data.tres
+var saved_data_path := "res://addons/worktime_stopwatch_saved_data.tres"
+var settings_dir := "res://addons/" # worktime_stopwatch_settings.cfg
+var settings_path := "res://addons/worktime_stopwatch_settings.cfg"
+
 var _continuous_date_check_cooldown := CONTINUOUS_DATE_CHECK_DELAY
 var _continuous_date_check := false:
 	set(value):
@@ -25,13 +30,39 @@ var _continuous_date_check := false:
 
 
 func _enter_tree() -> void:
+	# loading potential settings and saved data path
+	var config = ConfigFile.new()
+	if FileAccess.file_exists("res://addons/worktime_stopwatch/local_paths_config.cfg"):
+		var err := config.load("res://addons/worktime_stopwatch/local_paths_config.cfg")
+		if err == OK:
+			saved_data_dir = config.get_value(
+					"local_settings",
+					"saved_data_path",
+					"res://addons/"
+			)
+			saved_data_path = saved_data_dir + "/worktime_stopwatch_saved_data.tres"
+			settings_dir = config.get_value(
+					"local_settings",
+					"settings_path",
+					"res://addons/"
+			)
+			settings_path = saved_data_dir + "/worktime_stopwatch_settings.cfg"
+	else:
+		config.set_value("local_settings", "saved_data_path", saved_data_dir)
+		config.set_value("local_settings", "settings_path", settings_dir)
+		config.save("res://addons/worktime_stopwatch/local_paths_config.cfg")
+		
+		var file = FileAccess.open("res://addons/worktime_stopwatch/.gitignore", FileAccess.WRITE)
+		file.store_string("local_paths_config.cfg")
+		file.close()
+	
 	# load settings and start listening to changes
 	settings = Settings.new()
-	if not FileAccess.file_exists(settings.FILE_PATH):
+	if not FileAccess.file_exists(settings_path):
 		settings.load_default_settings()
-		settings.save()
+		settings.save(settings_path)
 	else:
-		settings.load_settings()
+		settings.load_settings(settings_path)
 	_continuous_date_check = settings.continuous_date_check
 	settings.settings_updated.connect(_on_settings_updated)
 	
@@ -97,7 +128,7 @@ func _exit_tree() -> void:
 	main_dock_instance.queue_free()
 	config_window_instance.queue_free()
 	
-	settings.free()
+	#settings.free()
 
 
 func _process(delta: float) -> void:
@@ -131,9 +162,9 @@ func _refresh_config_window():
 
 
 func _load_or_create_saved_data():
-	if SavedData.verify_saved_data_exists():
+	if SavedData.verify_saved_data_exists(saved_data_path):
 		# if data file exists, we load it
-		saved_data_instance = SavedData.load_saved_data()
+		saved_data_instance = SavedData.load_saved_data(saved_data_path)
 		
 		# if the current date inside of the saved data is older than the current date, we update it
 		if _is_current_date_newer_than_saved_current_date():
@@ -200,7 +231,7 @@ func _switch_to_new_day():
 # Saves current progress and if the date is no longer the same, makes the necessary calls to switch to a new day
 func _save_current_work_time():
 	saved_data_instance.current_day_data.work_time = main_dock_instance.get_elapsed_time()
-	saved_data_instance.save_data()
+	saved_data_instance.save_data(saved_data_path)
 	
 	if _is_current_date_newer_than_saved_current_date():
 		_switch_to_new_day()

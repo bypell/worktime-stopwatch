@@ -43,13 +43,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 2
+current_tab = 1
 
 [node name="Calendar" type="MarginContainer" parent="TabContainer" unique_id=1546389226]
 unique_name_in_owner = true
 visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 1
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -102,9 +103,9 @@ columns = 7
 
 [node name="Settings" type="MarginContainer" parent="TabContainer" unique_id=1537068343]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
+focus_mode = 1
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -122,10 +123,12 @@ horizontal_scroll_mode = 0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer" unique_id=81782788]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 15
 
 [node name="MinimumWorkTime" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1926970661]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime" unique_id=371624343]
 layout_mode = 2
@@ -137,7 +140,8 @@ text = "Current minimum daily work time: "
 [node name="DailyWorkTimeSpinBox" type="SpinBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/MinimumWorkTime/HBoxContainer" unique_id=2002471693]
 unique_name_in_owner = true
 layout_mode = 2
-tooltip_text = "Minimum daily work time. One decimal place is allowed (ex: 10.5 for 10m30s)"
+tooltip_text = "Minimum daily work time.
+This does not apply retroactively to past days."
 max_value = 1439.0
 step = 0.1
 update_on_text_changed = true
@@ -149,6 +153,7 @@ text = "minutes"
 
 [node name="Misc" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer" unique_id=1270951951]
 layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="AutoStartCheckbox" type="CheckBox" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/Misc" unique_id=835726001]
 unique_name_in_owner = true
@@ -176,6 +181,7 @@ text = "Limit activity to:"
 [node name="MarginContainer" type="MarginContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow" unique_id=2103468895]
 layout_mode = 2
 theme_override_constants/margin_left = 12
+theme_override_constants/margin_right = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Settings/VBoxContainer/ScrollContainer/VBoxContainer/FocusedWindow/MarginContainer" unique_id=1235142909]
 layout_mode = 2
@@ -199,12 +205,12 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 tooltip_text = "Comma separated, case sensitive list of keywords that a focused window's title can 
-contain to be considered \"whitelisted\" and to not block the stopwatch.
+contain to be considered \"whitelisted\" and to allow the stopwatch to keep counting.
 
 Trick: Some programs display the path of the file being modified in the window's title, sometimes replacing the app's name. 
 Adding the name of your project's directory to this list could be a good idea :) 
-For example, if your game assets are in \"C:\\Users\\username\\Documents\\MyGame\\.gdignore\\my_sources_files\", 
-you could add the string \"MyGame\" to the list and automatically whitelist all asset creation apps that display that path in their title."
+For example, if your game assets are in \"C:\\Users\\username\\Documents\\MyGame\\.gdignore\\my_source_files\", 
+you could add the string \"MyGame\" to the whitelist and automatically whitelist all asset creation apps that display that file path in their title."
 wrap_mode = 1
 virtual_keyboard_enabled = false
 
@@ -234,10 +240,12 @@ text = "Reset settings to default"
 unique_name_in_owner = true
 position = Vector2i(0, 36)
 size = Vector2i(295, 100)
-dialog_text = "Reset settings to the default values?"
+dialog_text = "Reset settings to their default values?"
 
 [node name="Extra" type="MarginContainer" parent="TabContainer" unique_id=1195118379]
+visible = false
 layout_mode = 2
+focus_mode = 1
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10

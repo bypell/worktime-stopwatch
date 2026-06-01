@@ -1,8 +1,8 @@
-extends Object
+extends RefCounted
 
 signal settings_updated
 
-const FILE_PATH := "res://addons/worktime_stopwatch_settings.cfg"
+#const FILE_PATH := "res://addons/worktime_stopwatch_settings.cfg"
 
 const DEFAULT_AUTO_START_STOPWATCH_ON_LOAD := false
 const DEFAULT_CURRENT_DAILY_WORK_TIME_MINUTES := 20.0
@@ -19,6 +19,8 @@ var godot_project_window: bool
 var other_windows: bool
 var other_windows_keywords: String
 var continuous_date_check: bool
+
+var _last_used_path := ""
 
 
 func _init() -> void:
@@ -51,10 +53,15 @@ func are_settings_default() -> bool:
 	return true
 
 
-func load_settings() -> int:
+func load_settings(path: String = "") -> int:
+	if path == "":
+		path = _last_used_path
+	else:
+		_last_used_path = path
+	
 	# load the file
 	config = ConfigFile.new()
-	var err := config.load(FILE_PATH)
+	var err := config.load(path)
 
 	if err != OK:
 		return err
@@ -96,7 +103,12 @@ func load_settings() -> int:
 	return err
 
 
-func save():
+func save(path: String = ""):
+	if path == "":
+		path = _last_used_path
+	else:
+		_last_used_path = path
+	
 	# we put the values of the member variables in the config file and then save it
 	config.set_value("auto_start", "auto_start_stopwatch_on_load", auto_start_stopwatch_on_load)
 	config.set_value("daily_work_time", "current_daily_work_time_minutes", current_daily_work_time_minutes)
@@ -105,5 +117,5 @@ func save():
 	config.set_value("focused_window_behavior", "other_windows_keywords", other_windows_keywords)
 	config.set_value("date_checking_behavior", "continuous_date_check", continuous_date_check)
 	
-	config.save(FILE_PATH)
+	config.save(path)
 	settings_updated.emit()

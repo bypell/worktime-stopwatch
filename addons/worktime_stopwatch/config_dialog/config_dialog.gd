@@ -11,8 +11,11 @@ signal requested_save_calendar_as_csv(path: String, delimiter: String)
 
 func _ready():
 	# TODO use is_part_of_edited_scene() once it's exposed
-	if not get_tree().edited_scene_root == null and get_tree().edited_scene_root in [self, owner]:
+	#if not get_tree().edited_scene_root == null and get_tree().edited_scene_root in [self, owner]:
+		#return
+	if is_part_of_edited_scene():
 		return
+		
 	
 	$TabContainer.current_tab = 0
 	
